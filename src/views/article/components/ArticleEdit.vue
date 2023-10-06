@@ -39,7 +39,6 @@ const open = async (row) => {
     imgUrl.value = baseURL + formModel.value.cover_img
   } else {
     formModel.value = { ...defaultForm }
-    console.log('新增')
     imgUrl.value = ''
     editorRef.value.setHTML('')
   }

@@ -28,7 +28,6 @@ const rules = {
 }
 const emit = defineEmits(['success'])
 const onSebmit = async () => {
-  console.log(formModel.value)
   await formRfe.value.validate()
   const isEdit = formModel.value.id
   if (isEdit) {

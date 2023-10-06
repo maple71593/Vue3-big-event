@@ -74,7 +74,7 @@ const handleCommand = async (key) => {
     <el-container>
       <el-header>
         <div>
-          黑馬程式師：<strong>{{
+          歡迎回來：<strong>{{
             UserDataApi.userData.nickname || UserDataApi.userData.username
           }}</strong>
         </div>
@@ -95,7 +95,7 @@ const handleCommand = async (key) => {
                 >重置密碼</el-dropdown-item
               >
               <el-dropdown-item command="logout" :icon="SwitchButton"
-                >退出登錄</el-dropdown-item
+                >登出</el-dropdown-item
               >
             </el-dropdown-menu>
           </template>

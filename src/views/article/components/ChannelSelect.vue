@@ -16,7 +16,6 @@ const channelList = ref([])
 const GetListData = async () => {
   const res = await getListData()
   channelList.value = res.data.data
-  console.log(res.data.data)
 }
 GetListData()
 </script>

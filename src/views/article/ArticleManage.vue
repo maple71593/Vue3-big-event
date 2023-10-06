@@ -125,10 +125,7 @@ const onSuccess = (type) => {
       </template>
     </el-table>
     <el-pagination
-      v-model:current-page="currentPage4"
-      v-model:page-size="pageSize4"
       :page-sizes="[2, 4, 6, 8, 10]"
-      :background="background"
       layout="total,sizes, prev, pager, next,jumper"
       :total="total"
       @size-change="onSizeChange"

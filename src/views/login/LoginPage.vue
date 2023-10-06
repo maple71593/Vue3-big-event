@@ -25,7 +25,7 @@ const rules = {
   password: [
     { required: true, message: '請輸入密碼', trigger: 'blur' },
     {
-      pattern: /^(?=.*[A-Z])(?=.*[\W_])(?!.*\s).{6,12}$/,
+      pattern: /^\w{1,10}$/,
       min: 5,
       max: 10,
       message: '要有1個大寫英文字母與1個特殊符號。',
@@ -35,7 +35,7 @@ const rules = {
   repassword: [
     { required: true, message: '請輸入密碼', trigger: 'blur' },
     {
-      pattern: /^(?=.*[A-Z])(?=.*[\W_])(?!.*\s).{6,12}$/,
+      pattern: /^\w{1,10}$/,
       min: 5,
       max: 10,
       message: '要有1個大寫英文字母與1個特殊符號。',

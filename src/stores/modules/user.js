@@ -11,10 +11,13 @@ export const useUserStore = defineStore(
     const removeToken = () => {
       token.value = ''
     }
-    const userData = ref('')
+    const userData = ref({})
     const getUserDataApi = async () => {
       const res = await getUserData()
       userData.value = res.data.data
+    }
+    const removeUserData = () => {
+      userData.value = {}
     }
 
     return {
@@ -22,7 +25,8 @@ export const useUserStore = defineStore(
       setToken,
       removeToken,
       getUserDataApi,
-      userData
+      userData,
+      removeUserData
     }
   },
   {

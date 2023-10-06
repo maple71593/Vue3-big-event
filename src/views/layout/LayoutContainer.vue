@@ -11,11 +11,25 @@ import {
 } from '@element-plus/icons-vue'
 import avatar from '@/assets/default.png'
 import { useUserStore } from '@/stores'
-import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const UserDataApi = useUserStore()
-onMounted(() => {
-  UserDataApi.getUserDataApi()
-})
+UserDataApi.getUserDataApi()
+
+const handleCommand = async (key) => {
+  if (key === 'logout') {
+    await ElMessageBox.confirm('你確定要登出嗎?', '提示', {
+      confirmButtonText: '確認',
+      cancelButtonText: '取消',
+      type: 'warning'
+    })
+    UserDataApi.removeToken()
+    UserDataApi.removeUserData()
+    router.push('/login')
+  } else {
+    router.push(`/user/${key}`)
+  }
+}
 </script>
 
 <template>
@@ -64,7 +78,7 @@ onMounted(() => {
             UserDataApi.userData.nickname || UserDataApi.userData.username
           }}</strong>
         </div>
-        <el-dropdown placement="bottom-end">
+        <el-dropdown placement="bottom-end" @command="handleCommand">
           <span class="el-dropdown__box">
             <el-avatar :src="UserDataApi.userData.user_pic || avatar" />
             <el-icon><CaretBottom /></el-icon>
